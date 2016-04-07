@@ -27,14 +27,17 @@
                 success: function (weather) {
                     //html = '<h2><i class="icon-' + weather.code + '"></i> ' + weather.temp + '&deg;' + weather.units.temp +
                     //    '&nbsp;&nbsp;&nbsp;&nbsp;Wind Chill:' + weather.wind.chill + '</h2>';
-
+                    windChill = weather.wind.chill;
+                    windChillCelsius = Math.round((5.0/9.0)*(windChill-32.0));
+                    
                     if (weather.temp < 5)
                     {
                         weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
-                            '<label class="windchill">Wind Chill ' + weather.wind.chill + '</label>';
+                            '<label class="windchill">Wind Chill ' + windChillCelsius + '</label>';
                     }
                     else {
-                        weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp;
+                        weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
+                            '<label class="windchill">Feels Like ' + windChillCelsius + '</label>';
                     }
                     weatherHighlow = "High " + weather.high + " &nbsp;&nbsp; Low " + weather.low;
                     weatherCity = weather.city + ", " + weather.region;
