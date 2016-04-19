@@ -4,3 +4,9 @@
 \\ec-filsrv2\home-k$\kiyanir\visual studio 2013\Projects\Weather\Weather\obj\Release\Weather.csprojResolveAssemblyReference.cache
 \\ec-filsrv2\home-k$\kiyanir\visual studio 2013\Projects\Weather\Weather\obj\Release\Weather.dll
 \\ec-filsrv2\home-k$\kiyanir\visual studio 2013\Projects\Weather\Weather\obj\Release\Weather.pdb
+D:\Repos\Weather\Weather\bin\Weather.dll.config
+D:\Repos\Weather\Weather\bin\Weather.dll
+D:\Repos\Weather\Weather\bin\Weather.pdb
+D:\Repos\Weather\Weather\obj\Release\Weather.csprojResolveAssemblyReference.cache
+D:\Repos\Weather\Weather\obj\Release\Weather.dll
+D:\Repos\Weather\Weather\obj\Release\Weather.pdb
