@@ -30,15 +30,9 @@
                     windChill = weather.wind.chill;
                     windChillCelsius = Math.round((5.0/9.0)*(windChill-32.0));
                     
-                    if (weather.temp < 5)
-                    {
-                        weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
-                            '<label class="windchill">Wind Chill ' + windChillCelsius + '</label>';
-                    }
-                    else {
-                        weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
-                            '<label class="windchill">Feels Like ' + windChillCelsius + '</label>';
-                    }
+                    weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
+                            '<label class="windchill">Feels Like ' + windChillCelsius + '</label>';
+
                     weatherHighlow = "High " + weather.high + " &nbsp;&nbsp; Low " + weather.low;
                     weatherCity = weather.city + ", " + weather.region;
                     weatherCurrently = weather.currently;
@@ -105,9 +99,9 @@
 <body>
     <form id="form1" runat="server">
         <div class="wrapper">
-            <div style="text-align:center; font-size:18px; margin-bottom:20px;"><p>Weather data source: Yahoo! &nbsp;&nbsp; jQuery plugin by: <a href="http://simpleweatherjs.com/" target="_blank">http://simpleweatherjs.com/</a></p>
+            <!--<div style="text-align:center; font-size:18px; margin-bottom:20px;"><p>Weather data source: Yahoo! &nbsp;&nbsp; jQuery plugin by: <a href="http://simpleweatherjs.com/" target="_blank">http://simpleweatherjs.com/</a></p>
                 <p>Weather Data Last Updaed: <label id="lastupdated"></label></p>
-            </div>
+            </div>-->
             <div class="datetime">
                 <p>
                     <label id="mDay"></label>
