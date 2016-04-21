@@ -38,7 +38,7 @@
             setInterval(loadWeatherAgain, 300000);
         });
 
-        function leadWeatherAgain() {
+        function loadWeatherAgain() {
             navigator.geolocation.getCurrentPosition(function (position) {
                 loadWeather(position.coords.latitude + ',' + position.coords.longitude); //load weather using your lat/lng coordinates
             });
