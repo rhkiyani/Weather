@@ -13,23 +13,48 @@
     <script src="weather/jquery-simpleWeather.min.js"></script>
 
     <script type="text/javascript">
+        /* Does your browser support geolocation? */
+        /*
+        if ("geolocation" in navigator) {
+            $('.js-geolocation').show();
+        } else {
+            $('.js-geolocation').hide();
+        }
+        */
+        /* Where in the world are you? */
+        /*
+        $('.js-geolocation').on('click', function () {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                loadWeather(position.coords.latitude + ',' + position.coords.longitude); //load weather using your lat/lng coordinates
+            });
+        });
+        */
+        
         $(document).ready(function () {
             startTime();
-            getWeather();
-            setInterval(getWeather, 300000);
+            navigator.geolocation.getCurrentPosition(function (position) {
+                loadWeather(position.coords.latitude + ',' + position.coords.longitude); //load weather using your lat/lng coordinates
+            });
+            setInterval(loadWeatherAgain, 300000);
         });
 
-        function getWeather() {
+        function loadWeatherAgain() {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                loadWeather(position.coords.latitude + ',' + position.coords.longitude); //load weather using your lat/lng coordinates
+            });
+        }
+        function loadWeather(location, woeid) {
             $.simpleWeather({
-                location: 'Kitchener, ON',
+                location: location,
+                woeid: woeid,
                 unit: 'c',
                 speed: 'km',
                 success: function (weather) {
                     //html = '<h2><i class="icon-' + weather.code + '"></i> ' + weather.temp + '&deg;' + weather.units.temp +
                     //    '&nbsp;&nbsp;&nbsp;&nbsp;Wind Chill:' + weather.wind.chill + '</h2>';
                     windChill = weather.wind.chill;
-                    windChillCelsius = Math.round((5.0/9.0)*(windChill-32.0));
-                    
+                    windChillCelsius = Math.round((5.0 / 9.0) * (windChill - 32.0));
+
                     weatherNow = '<i class="icon-' + weather.code + '"></i> &nbsp;' + weather.temp + '&deg;' + weather.units.temp +
                             '<label class="windchill">Feels Like ' + windChillCelsius + '</label>';
 
@@ -74,8 +99,8 @@
                     $("#now").html('<p>' + error + '</p>');
                 }
             });
-        };
-
+        }
+        
         function startTime() {
             var d = new Date();
             var h = d.getHours();
